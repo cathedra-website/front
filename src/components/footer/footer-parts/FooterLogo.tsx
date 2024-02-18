@@ -4,8 +4,8 @@ export const FooterLogo = () => {
     return (
         <div>
             <CathedraLogo height={35} width={105}/>
-            <span>
-                Кафедра інтелектуальних програмних систем
+            <span className="block mt-3 text-sm leading-4">
+                Кафедра інтелектуальних <br /> програмних систем
             </span>
         </div>
     )
