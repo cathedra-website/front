@@ -1,9 +1,11 @@
 export const FooterLinks = () => {
     return (
-        <div>
-            <span className="block text-2xl mb-1 text-[#606B70]">Інші посилання:</span>
-            <span className="block text-base font-medium"><a>Facebook</a></span>
-            <span className="block text-base font-medium"><a>Сайт кафедри</a></span>
+        <div className="max-h-[85px]">
+            <p className=" text-[26px] mb-2 text-[#606B70] m-0 ">Інші посилання:</p>
+            <div className="leading-5">
+                <p className=" text-[16px] font-medium"><a>Facebook</a></p>
+                <p className=" text-[16px] font-medium"><a>Сайт кафедри</a></p>
+            </div>
         </div>
     )
 }

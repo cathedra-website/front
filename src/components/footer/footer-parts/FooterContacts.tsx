@@ -1,11 +1,15 @@
-import { CONTACTS } from "../../../constants/cathedra-contacts"
+import { CONTACTS } from "../../../constants/cathedra-contacts";
 
 export const FooterContacts = () => {
-    return (
-        <div>
-            <span className='block text-2xl mb-1 text-[#606B70]'>Контакти: </span>
-            <span className="block text-base font-medium">{CONTACTS.phoneNumber}</span>
-            <span className="block text-base font-medium">{CONTACTS.email}</span>
-        </div>
-    )
-}
+  return (
+    <div className="max-h-[85px]">
+      <p className=" text-[26px] mb-2 text-[#606B70] m-0 ">Контакти: </p>
+      <div className="leading-5">
+      <p className=" text-[16px] font-medium">
+        {CONTACTS.phoneNumber}
+      </p>
+      <p className=" text-[16px] font-medium">{CONTACTS.email}</p>
+      </div>
+    </div>
+  );
+};
