@@ -1,4 +1,4 @@
-import { Divider } from "../../../../components/common/divider/Divider";
+import { Divider } from "@/components/common/divider/Divider";
 import { Programm } from "./Programm";
 import { ProgrammProps } from "./programm-props";
 

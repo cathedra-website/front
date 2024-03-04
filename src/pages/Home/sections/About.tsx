@@ -19,7 +19,7 @@ export const About = () => {
           width: "570px",
           borderRadius: '12px'
         }}
-        src="/src/static/img/faculty.jfif"
+        src="/src/static/img/faculty.png"
       />
     </div>
   );

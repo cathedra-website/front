@@ -1,4 +1,4 @@
-import { RedirectLink } from "../../../../components/common/RedirectLink/RedirectLink"
+import { RedirectLink } from "@/components/common/RedirectLink/RedirectLink"
 import { ProgrammProps } from "./programm-props"
 
 export const Programm = (props: ProgrammProps) => {
