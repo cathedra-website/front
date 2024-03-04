@@ -14,7 +14,7 @@ const sections = [
 
 export const Home = () => {
     // ? gap to be discussed    
-    return <div className="flex flex-col gap-[5.5rem] px-36"> 
+    return <div className="flex flex-col gap-[5.5rem]"> 
         {
             sections.map(i => i)
         }
