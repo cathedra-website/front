@@ -1,14 +1,14 @@
 import { Footer } from './components/footer/Footer'
 import { Header } from './components/header/Header'
-import { Home } from './pages/Home/Home'
+import {Home} from "@/pages/Home/Home.tsx";
 
 function App() {
 
-  return <div> 
+  return <>
     <Header />
       <Home />
     <Footer />
-  </div>
+    </>
 }
 
 export default App
