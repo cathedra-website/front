@@ -5,13 +5,13 @@ import { HistoryPage } from './pages/history/HistoryPage'
 
 function App() {
 
-  return <div> 
+  return <>
     <Header />
     <div className='px-36'>
       <HistoryPage />
     </div>
     <Footer />
-  </div>
+    </>
 }
 
 export default App
