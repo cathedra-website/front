@@ -1,17 +1,15 @@
-// import { About } from "./sections/About"
-// import { Links } from "./sections/Links"
+import { About } from "./sections/About"
+import { Links } from "./sections/Links"
 import { NewsCarousel } from "./sections/NewsCarousel/NewsCarousel"
-// import { Programms } from "./sections/Programms/Programms"
+import { Programms } from "./sections/Programms/Programms"
 import { Welcome } from "./sections/Welcome"
-// import {Route} from "react-router-dom";
-// import {About} from "@/pages/About/About.tsx";
 
 const sections = [
     <Welcome />,
     <NewsCarousel />,
-    // <About />
-    // <Programms />,
-    // <Links />,
+    <About />,
+    <Programms />,
+    <Links />,
 ]
 
 export const Home = () => {

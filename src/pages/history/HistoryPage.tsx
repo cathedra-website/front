@@ -9,7 +9,7 @@ const historySections: HistoryProps[] = [
   {
     timePeriod: "1990-2001 рр.",
     lecturerInfo: {
-      imgSrc: "src/static/img/popov.png",
+      imgSrc: "/src/static/img/popov.png",
       name: "Попов Юрій Дмитрович",
       post: "завідувач кафедри ІС, доктор технічних наук, професор",
     },
@@ -108,7 +108,7 @@ const historySections: HistoryProps[] = [
   {
     timePeriod: "2001-2003 рр.",
     lecturerInfo: {
-      imgSrc: "src/static/img/bublyk.png",
+      imgSrc: "/src/static/img/bublyk.png",
       name: "Бублик Володимир Васильович",
       post: "В.О. завідувача кафедри ІС, кандидат фізико-математичних наук, доцент",
     },
@@ -174,7 +174,7 @@ const historySections: HistoryProps[] = [
   {
     timePeriod: "2003-сьогодні",
     lecturerInfo: {
-      imgSrc: "src/static/img/provotar.png",
+      imgSrc: "/src/static/img/provotar.png",
       name: "Провотар Олександр Іванович",
       post: "завідувач кафедри ІС доктор фізико-математичних наук, професор",
     },
