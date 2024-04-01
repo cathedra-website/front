@@ -1,5 +1,3 @@
-
-3. Fix carousle on Home page
 4. Complete rework header and add navigation
-5. Fix shadow box for photos on /cathedra/history
+5. Fix shadow box for photos on /cathedra/history -- ?
 6. Add typography

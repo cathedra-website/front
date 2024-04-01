@@ -4,10 +4,10 @@ import { RedirectLink } from "@/components/common/RedirectLink/RedirectLink";
 
 export const NewsPreview = (props: NewsPreviewProps) => {
     return (
-        <div className="h-full w-[29.5rem] border-2 rounded-sm border-black flex flex-col gap-4">
-            <h3>{props.name}</h3>
+        <div className="h-full px-6 py-8 w-[25rem] border-2 rounded-xl border-black flex flex-col gap-4">
+            <h3 className="font-medium text-3xl">{props.name}</h3>
             <Divider />
-            <p>{props.description}</p>
+            <p className="text-2xl">{props.description}</p>
             <RedirectLink size="29px">Детальніше</RedirectLink>
         </div>
     )
