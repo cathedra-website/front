@@ -1,0 +1,5 @@
+1. Fix shadow box on footer
+2. Fix layout on cathedra page
+3. Fix carousle on Home page
+4. Complete rework header and add navigation
+5. Fix shadow box for photos on /cathedra/history

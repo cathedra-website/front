@@ -1,6 +1,6 @@
 export const About = () => {
     return (
-            <div className="max-w-screen-lg mx-auto">
+            <>
         <img
             className="h-181 rounded-lg shadow-xl dark:shadow-gray-800 mt-20 mx-auto"
             src="src/assets/images/photo-in-head.png"
@@ -60,6 +60,6 @@ export const About = () => {
             <p className="font-light text-[24px] tracking-tight w-9/12" >Запрошуємо абітурієнтів, студентів, аспірантів та докторантів на кафедру інтелектуальних програмних систем. </p>
             <a href='/' className="font-weight text-[24px] tracking-tight ">Дізнайся більше про навчання на кафедрі та правила прийому</a>
 
-        </div>
+        </>
     )
 }

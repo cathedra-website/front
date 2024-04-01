@@ -6,8 +6,7 @@ export const AdditionalSection = (props: {children: ReactNode}) => {
 
     return <div>
         <div style={{
-            height: additional === 'Детальніше' ? 0 : 'auto',
-            visibility: additional === 'Детальніше' ? 'hidden' : 'visible',
+            display: additional === 'Детальніше' ? 'none' : 'block',
         }}>
             {props.children}
         </div>
