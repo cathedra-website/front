@@ -12,7 +12,9 @@ const parts = [
 
 export const Footer = () => {
   return (
-    <footer className="grid grid-cols-5 py-9 px-36 shadow-[0_-10px_20px_-3px_#00000040] relative left-0 bottom-0">
+    <footer className="grid grid-cols-5 py-9 px-36 relative left-0 bottom-0" style={{
+      boxShadow: "0px 4px 77px -26px rgba(0,0,0,0.25)",
+    }}>
       {parts.map((item) => (
         <>{item}</>
       ))}
