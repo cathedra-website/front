@@ -1,6 +1,6 @@
 import { CathedraLogo } from '../common/cathedra-logo/CathedraLogo'
-import { navigationData } from "@/data/navigationData.tsx";
-import { DropDownItem } from "@/components/navigation/DropDownItem.tsx";
+import { Button, Group, Menu } from '@mantine/core';
+import { navbar } from './navbar';
 
 export const Header = () => {
     return (
@@ -8,9 +8,22 @@ export const Header = () => {
             boxShadow: "0px 4px 77px -26px rgba(0,0,0,0.25)",
         }}>
             <CathedraLogo height={35} width={105}/>
-            <div className="flex gap-16 items-center">
-                {navigationData.map((dropDownItem) => <DropDownItem title={dropDownItem.title} points={dropDownItem.points}/> )}
-            </div>
+            <Group>
+                {
+                    navbar.map(nav => <Menu loop={false} trigger='hover' withinPortal={false}
+                    trapFocus={false}>
+                        <Menu.Target>
+                            <Button component='a' href={nav.link} variant="transparent" color="rgba(0, 0, 0, 1)">{nav.target}</Button>
+                        </Menu.Target>
+                        {
+                            nav.content &&
+                            <Menu.Dropdown className=''>
+                                {nav.content.map(cont => <Menu.Item component='a' href={cont.link}>{cont.item}</Menu.Item>)}
+                            </Menu.Dropdown>
+                        }
+                    </Menu>)
+                }
+            </Group>
         </div>
     )
 
