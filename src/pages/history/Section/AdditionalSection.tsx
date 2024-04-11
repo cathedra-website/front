@@ -5,7 +5,7 @@ export const AdditionalSection = (props: {children: ReactNode}) => {
     const [additional, setAdditional] = useState<string>('Детальніше')
 
     return <div>
-        <div style={{
+        <div className="flex flex-col gap-5" style={{
             display: additional === 'Детальніше' ? 'none' : 'block',
         }}>
             {props.children}

@@ -10,7 +10,7 @@ export const MainSection = (props: MainSectionProps) => {
             <Divider />
             <p className="font-light text-xl mt-1">{props.lecturerInfo.post}</p>
         </div>
-        <div className="flex flex-col col-start-2 col-end-5">
+        <div className="flex flex-col col-start-2 col-end-5 gap-5">
             {props.children}
         </div>
     </div>

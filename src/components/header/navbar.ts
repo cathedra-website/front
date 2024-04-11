@@ -5,7 +5,7 @@ export const navbar: Navbar[] = [
         content: [
             {
                 item: 'Привітання завідувача',
-                link: '#'
+                link: '/cathedra/greeting'
             },
             {
                 item: 'Історія кафедри',
