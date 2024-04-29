@@ -20,6 +20,7 @@ const IndexLazyImport = createFileRoute('/')()
 const CathedraIndexLazyImport = createFileRoute('/cathedra/')()
 const CathedraHistoryLazyImport = createFileRoute('/cathedra/history')()
 const CathedraGreetingLazyImport = createFileRoute('/cathedra/greeting')()
+const CathedraEmployeesLazyImport = createFileRoute('/cathedra/employees')()
 
 // Create/Update Routes
 
@@ -49,12 +50,23 @@ const CathedraGreetingLazyRoute = CathedraGreetingLazyImport.update({
   import('./routes/cathedra/greeting.lazy').then((d) => d.Route),
 )
 
+const CathedraEmployeesLazyRoute = CathedraEmployeesLazyImport.update({
+  path: '/cathedra/employees',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/cathedra/employees').then((d) => d.Route),
+)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/cathedra/employees': {
+      preLoaderRoute: typeof CathedraEmployeesLazyImport
       parentRoute: typeof rootRoute
     }
     '/cathedra/greeting': {
@@ -76,6 +88,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
+  CathedraEmployeesLazyRoute,
   CathedraGreetingLazyRoute,
   CathedraHistoryLazyRoute,
   CathedraIndexLazyRoute,

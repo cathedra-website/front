@@ -13,7 +13,7 @@ export const navbar: Navbar[] = [
             },
             {
                 item: 'Співробітники',
-                link: '#'
+                link: '/cathedra/employees'
             },
             {
                 item: 'Працевлаштування',
