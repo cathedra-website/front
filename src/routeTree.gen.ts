@@ -13,6 +13,8 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as CathedraEmployeesIndexImport } from './routes/cathedra/employees/index'
+import { Route as CathedraEmployeesSlugImport } from './routes/cathedra/employees/$slug'
 
 // Create Virtual Routes
 
@@ -20,42 +22,44 @@ const IndexLazyImport = createFileRoute('/')()
 const CathedraIndexLazyImport = createFileRoute('/cathedra/')()
 const CathedraHistoryLazyImport = createFileRoute('/cathedra/history')()
 const CathedraGreetingLazyImport = createFileRoute('/cathedra/greeting')()
-const CathedraEmployeesLazyImport = createFileRoute('/cathedra/employees')()
 
 // Create/Update Routes
 
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes').then((d) => d.Route))
 
 const CathedraIndexLazyRoute = CathedraIndexLazyImport.update({
   path: '/cathedra/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/cathedra/index.lazy').then((d) => d.Route),
+  import('./routes/cathedra').then((d) => d.Route),
 )
 
 const CathedraHistoryLazyRoute = CathedraHistoryLazyImport.update({
   path: '/cathedra/history',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/cathedra/history.lazy').then((d) => d.Route),
+  import('./routes/cathedra/history').then((d) => d.Route),
 )
 
 const CathedraGreetingLazyRoute = CathedraGreetingLazyImport.update({
   path: '/cathedra/greeting',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/cathedra/greeting.lazy').then((d) => d.Route),
+  import('./routes/cathedra/greeting').then((d) => d.Route),
 )
 
-const CathedraEmployeesLazyRoute = CathedraEmployeesLazyImport.update({
-  path: '/cathedra/employees',
+const CathedraEmployeesIndexRoute = CathedraEmployeesIndexImport.update({
+  path: '/cathedra/employees/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/cathedra/employees').then((d) => d.Route),
-)
+} as any)
+
+const CathedraEmployeesSlugRoute = CathedraEmployeesSlugImport.update({
+  path: '/cathedra/employees/$slug',
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -63,10 +67,6 @@ declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/cathedra/employees': {
-      preLoaderRoute: typeof CathedraEmployeesLazyImport
       parentRoute: typeof rootRoute
     }
     '/cathedra/greeting': {
@@ -81,6 +81,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CathedraIndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/cathedra/employees/$slug': {
+      preLoaderRoute: typeof CathedraEmployeesSlugImport
+      parentRoute: typeof rootRoute
+    }
+    '/cathedra/employees/': {
+      preLoaderRoute: typeof CathedraEmployeesIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -88,10 +96,11 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
-  CathedraEmployeesLazyRoute,
   CathedraGreetingLazyRoute,
   CathedraHistoryLazyRoute,
   CathedraIndexLazyRoute,
+  CathedraEmployeesSlugRoute,
+  CathedraEmployeesIndexRoute,
 ])
 
 /* prettier-ignore-end */

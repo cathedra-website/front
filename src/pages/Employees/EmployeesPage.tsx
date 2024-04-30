@@ -15,7 +15,7 @@ export const EmploeesPage = () => {
         <h1 className="text-[52px] font-bold">Співробітники кафедри</h1>
         {
             employees.map(item => 
-                    <div>
+                    <div >
                         <div className="w-fit mb-8">
                             <h2 className="text-5xl mb-3 font-medium">{item.name}</h2>
                             <Divider />
