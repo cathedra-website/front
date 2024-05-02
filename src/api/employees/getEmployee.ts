@@ -7,6 +7,8 @@ export type GetEmployeeResponse = {
     diploma_work_topics: Array<string>
     email: string
     first_name: string
+    id: string,
+    image: string
     last_name: string
     links: Record<string, string>
     middle_name: string

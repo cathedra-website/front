@@ -18,7 +18,7 @@ export const EmployeePage = () => {
 
     return <>
         <h2 className="font-bold text-[52px]">Співробітники кафедри</h2>
-        <TopInfo links={employee?.links} name={`${employee?.last_name} ${employee?.first_name} ${employee?.middle_name}`} ranks={employee?.ranks}/>
+        <TopInfo links={employee?.links} image={employee?.image ?? ''} name={`${employee?.last_name} ${employee?.first_name} ${employee?.middle_name}`} ranks={employee?.ranks}/>
         {employee?.degree_history && <Career degree_history={employee.degree_history}/>}
         {employee?.study_interests && <Science study_interests={employee.study_interests} />}
         {employee?.chosen_publications && <Publications chosen_publications={employee.chosen_publications} />}

@@ -2,6 +2,7 @@ import { Divider } from "@/components/common/divider/Divider"
 
 type Props = {
     name: string
+    image: string
     links?: Record<string, string>
     ranks?: Array<string>
 }
@@ -14,7 +15,7 @@ export const TopInfo = (props: Props) => {
     }
 
     return <div className="flex gap-14">
-        <div className="min-w-[236px] h-[355px] bg-blue-500 rounded-xl"></div>
+        <div className="min-w-[236px] h-[355px] rounded-xl" style={{backgroundImage: `url(${props.image})`, backgroundSize: 'cover'}}></div>
         <div className="flex flex-col gap-8">
             <div className="w-fit">
                 <h3 className="font-medium text-5xl mb-3">{props.name}</h3>
