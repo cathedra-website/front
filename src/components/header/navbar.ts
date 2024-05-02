@@ -15,14 +15,6 @@ export const navbar: Navbar[] = [
                 item: 'Співробітники',
                 link: '/cathedra/employees'
             },
-            {
-                item: 'Працевлаштування',
-                link: '#'
-            },
-            {
-                item: 'Випускники кафедри',
-                link: '#'
-            },
         ],
     },
     {
