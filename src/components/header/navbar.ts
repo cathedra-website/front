@@ -19,7 +19,7 @@ export const navbar: Navbar[] = [
     },
     {
         target: 'Навчання',
-        link: '#',
+        link: '/study',
         content: [
             {
                 item: 'ОС “Бакалавр”',
