@@ -1,6 +1,7 @@
 import { Divider } from "@/components/common/divider/Divider"
 
 export const StudyPage = () => {
+    // TODO: bold words inside paragraphs
     return <>
         <h2 className="font-bold text-5xl">Навчання</h2>
         <div className="flex flex-col gap-5">
