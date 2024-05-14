@@ -23,11 +23,11 @@ export const navbar: Navbar[] = [
         content: [
             {
                 item: 'ОС “Бакалавр”',
-                link: '#'
+                link: '/study/bakalavr'
             },
             {
                 item: 'ОС “Магістр”',
-                link: '#'
+                link: '/study/magistr'
             },
             {
                 item: 'ОС “Доктор філософії”',
