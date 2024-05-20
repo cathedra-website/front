@@ -1,6 +1,4 @@
-import { GetEmployeeResponse, getEmployee } from "@/api/employees/getEmployee"
 import { Route } from "@/routes/cathedra/employees/$slug"
-import { useEffect, useState } from "react"
 import { TopInfo } from "./components/TopInfo"
 import { Career } from "./components/Career"
 import { Science } from "./components/Science"
@@ -9,12 +7,7 @@ import { DiplomeThemes } from "./components/DiplomaThemes"
 import { Publications } from "./components/Publications"
 
 export const EmployeePage = () => {
-    const { slug } = Route.useParams()
-    const [employee, setEmployee] = useState<GetEmployeeResponse>()
-
-    useEffect(() => {
-        getEmployee(slug).then(data => setEmployee(data))
-    }, [])
+    const employee = Route.useLoaderData()
 
     return <>
         <h2 className="font-bold text-[52px]">Співробітники кафедри</h2>
