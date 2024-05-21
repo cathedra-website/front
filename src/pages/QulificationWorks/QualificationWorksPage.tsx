@@ -74,14 +74,14 @@ export const QualificationWorksPage = () => {
         <h2 className="font-bold text-5xl">Список випускних робіт</h2>
         {
             MOCK.map(item => <div>
-                <h3 className="font-medium text-3xl mb-3">{item.name}</h3>
+                <h3 className="font-medium text-3xl mb-4">{item.name}</h3>
                 <Table borderColor="dark" verticalSpacing='md'>
                     <Table.Thead className="font-medium">
                         <Table.Tr>
                             <Table.Th className="text-2xl text-center w-[5%]">№</Table.Th>
-                            <Table.Th className="text-2xl w-[25%]">П.І.Б.студента</Table.Th>
+                            <Table.Th className="text-2xl w-[20%]">П.І.Б.студента</Table.Th>
                             <Table.Th className="text-2xl w-[50%]">Тема бакалаврської роботи</Table.Th>
-                            <Table.Th className="text-2xl w-[30%]">Науковий керівник</Table.Th>
+                            <Table.Th className="text-2xl w-[40%]">Науковий керівник</Table.Th>
                         </Table.Tr>
                     </Table.Thead>
                     <Table.Tbody>
