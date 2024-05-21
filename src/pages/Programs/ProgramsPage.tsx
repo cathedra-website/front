@@ -78,7 +78,7 @@ export const ProgramsPage = () => {
                                 <Table.Tr key={index} className="font-light">
                                     <Table.Td className="text-2xl">{index}</Table.Td>
                                     <Table.Td className="text-2xl">{sub.name}</Table.Td>
-                                    <Table.Td className="text-2xl">{sub.block}</Table.Td>
+                                    <Table.Td className="text-2xl ">{sub.block}</Table.Td>
                                 </Table.Tr>
                             </>)
                         }

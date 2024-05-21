@@ -52,6 +52,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        main: ['"Inter Tight"'],
+      }, 
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
