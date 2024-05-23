@@ -1,5 +1,5 @@
 import { SectionHeader } from "./Section/SectionHeader";
-import { Paragraph } from "../../components/common/paragraph/Paragrph";
+import { Paragraph } from "../../components/styled/Paragrph";
 import { MainSection } from "./Section/MainSection";
 import { AdditionalSection } from "./Section/AdditionalSection";
 import { HistoryProps } from "./types";

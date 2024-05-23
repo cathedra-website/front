@@ -1,4 +1,4 @@
-import { Paragraph } from "@/components/common/paragraph/Paragrph"
+import { Paragraph } from "@/components/styled/Paragrph"
 
 export const About = () => {
     return (

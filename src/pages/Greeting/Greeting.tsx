@@ -1,4 +1,4 @@
-import { Paragraph } from "@/components/common/paragraph/Paragrph"
+import { Paragraph } from "@/components/styled/Paragrph"
 import { MainSection } from "../history/Section/MainSection"
 import { LecturerInfo } from "../history/types"
 

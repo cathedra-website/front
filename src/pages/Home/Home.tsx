@@ -13,7 +13,6 @@ const sections = [
 ]
 
 export const Home = () => {
-    // ? gap to be discussed
     return <>
         {
             sections.map(i => i)
