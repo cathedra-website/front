@@ -27,6 +27,9 @@ export const LibraryPage = () => {
         if(name){
             search.name = name
         }
+        if(typeFilter){
+            search.type = typeFilter
+        }
         navigate({to: '/library', search })
     }, 300)
 
@@ -38,11 +41,14 @@ export const LibraryPage = () => {
                     types.map(type => {
                         const highlighted = type.slug === typeFilter ? 'text-[#12A1DD]' : ''
                         return <p 
-                            className={`text-3xl font-light cursor-pointer hover:text-[#12A1DD] ${highlighted}`}
+                            className={`text-2xl font-light cursor-pointer hover:text-[#12A1DD] ${highlighted}`}
                             onClick={() => {
                                 const search: Record<string, unknown> = { page: 1 }
                                 if(type.slug){
                                     search.type = type.slug
+                                }
+                                if(nameFilter){
+                                    search.name = nameFilter
                                 }
                                 navigate({to: '/library', search })
                             }}
