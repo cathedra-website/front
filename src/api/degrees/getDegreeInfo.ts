@@ -8,9 +8,13 @@ export type GetDegreeResponse = {
         file: string
         name: string
     }>
-    study_programs_desc: Array<{
+    detailed_info: Array<{
         file: string
         name: string
+    }>
+    qualification_works: Array<{
+        slug: string
+        year: string
     }>
 }
 

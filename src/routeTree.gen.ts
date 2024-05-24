@@ -19,6 +19,7 @@ import { Route as StudySlugImport } from './routes/study/$slug'
 import { Route as CathedraHistoryImport } from './routes/cathedra/history'
 import { Route as CathedraGreetingImport } from './routes/cathedra/greeting'
 import { Route as CathedraEmployeesIndexImport } from './routes/cathedra/employees/index'
+import { Route as StudyThesesYearImport } from './routes/study/theses.$year'
 import { Route as CathedraEmployeesSlugImport } from './routes/cathedra/employees/$slug'
 
 // Create/Update Routes
@@ -63,6 +64,11 @@ const CathedraEmployeesIndexRoute = CathedraEmployeesIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const StudyThesesYearRoute = StudyThesesYearImport.update({
+  path: '/study/theses/$year',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const CathedraEmployeesSlugRoute = CathedraEmployeesSlugImport.update({
   path: '/cathedra/employees/$slug',
   getParentRoute: () => rootRoute,
@@ -104,6 +110,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CathedraEmployeesSlugImport
       parentRoute: typeof rootRoute
     }
+    '/study/theses/$year': {
+      preLoaderRoute: typeof StudyThesesYearImport
+      parentRoute: typeof rootRoute
+    }
     '/cathedra/employees/': {
       preLoaderRoute: typeof CathedraEmployeesIndexImport
       parentRoute: typeof rootRoute
@@ -122,6 +132,7 @@ export const routeTree = rootRoute.addChildren([
   LibraryIndexRoute,
   StudyIndexRoute,
   CathedraEmployeesSlugRoute,
+  StudyThesesYearRoute,
   CathedraEmployeesIndexRoute,
 ])
 

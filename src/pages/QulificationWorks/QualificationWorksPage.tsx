@@ -1,4 +1,6 @@
+import { Route } from "@/routes/study/theses.$year"
 import { Table } from "@mantine/core"
+import { useNavigate } from "@tanstack/react-router"
 
 type Work = {
     student: string
@@ -70,12 +72,11 @@ const MOCK : {name: string, works: Work[]}[] = [
 ]
 
 export const QualificationWorksPage = () => {
+    const qualificationWorks = Route.useLoaderData()
+    const navigate = useNavigate({})
     return <>
-        <h2 className="font-bold text-5xl">Список випускних робіт</h2>
-        {
-            MOCK.map(item => <div>
-                <h3 className="font-medium text-3xl mb-4">{item.name}</h3>
-                <Table borderColor="dark" verticalSpacing='md'>
+        <h2 className="font-bold text-5xl">Список випускних робіт на {qualificationWorks.year}</h2>
+        <Table borderColor="dark" verticalSpacing='md'>
                     <Table.Thead className="font-medium">
                         <Table.Tr>
                             <Table.Th className="text-2xl text-center w-[5%]">№</Table.Th>
@@ -85,19 +86,23 @@ export const QualificationWorksPage = () => {
                         </Table.Tr>
                     </Table.Thead>
                     <Table.Tbody>
-                        {
-                            item.works.map((work, index) => <>
-                                <Table.Tr key={index} className="font-light">
-                                    <Table.Td className="text-2xl">{index + 1}</Table.Td>
-                                    <Table.Td className="text-2xl">{work.student}</Table.Td>
-                                    <Table.Td className="text-2xl ">{work.name}</Table.Td>
-                                    <Table.Td className="text-2xl ">{work.lead}</Table.Td>
-                                </Table.Tr>
-                            </>)
-                        }
+                    {
+                        qualificationWorks.qualification_work.map((work, index) => {
+                            const supervisorAttr = work.scientific_supervisor?.is_active ? {
+                                onClick: () => navigate({ to: '/cathedra/employees/$slug', params: { slug: work.scientific_supervisor?.slug ?? ''}}),
+                                className: 'cursor-pointer text-[#12A1DD]'
+                            } : {}
+                            return <>
+                            <Table.Tr key={index} className="font-light">
+                            <Table.Td className="text-2xl">{index + 1}</Table.Td>
+                            <Table.Td className="text-2xl">{work.full_name}</Table.Td>
+                            <Table.Td className="text-2xl ">{work.topic_of_work}</Table.Td>
+                            <Table.Td className="text-2xl"><span {...supervisorAttr}>{work.scientific_supervisor?.short_name_with_position}</span></Table.Td>
+                            </Table.Tr>
+                        </>
+                        })
+                    }
                     </Table.Tbody>
                 </Table>
-            </div>)
-        }
     </>
 }
