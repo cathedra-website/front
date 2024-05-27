@@ -40,6 +40,11 @@ export const DegreePage = () => {
         <Divider />
         <div className="flex flex-col gap-5">
             <h3 className="font-medium text-3xl">Програми навчальних дисциплін</h3>
+            <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
+                {
+                    degreeInfo?.disciplines_programs.map(program => <li className="cursor-pointer" onClick={() => navigate({to: '/study/disciplines/$year', params: { year: program.slug }})}>Програми навчальних дисциплін {program.year} років</li>)
+                }
+            </ul>
         </div>
         <Divider />
         <div className="flex flex-col gap-5">

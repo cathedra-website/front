@@ -16,6 +16,10 @@ export type GetDegreeResponse = {
         slug: string
         year: string
     }>
+    disciplines_programs: Array<{
+        slug: string
+        year: string
+    }>
 }
 
 export const getDegreeInfo = async (slug: string) => {
