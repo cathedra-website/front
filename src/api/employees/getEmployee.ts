@@ -1,30 +1,33 @@
+import { StrapiResponse } from "@/types/strapi-response"
 import { axiosInstance } from "../instance"
+import { Image } from "@/types/image"
+import { GetPositionsResponse } from "./getPositions"
+import { Enumeration } from "@/types/enumeration"
+import { getMediaURL } from "@/utils/getMediaURL"
 
-export type GetEmployeeResponse = {
-    awards: Array<string>
-    chosen_publications: Array<string>
-    degree_history: string
-    diploma_work_topics: Array<string>
-    email: string
-    first_name: string
-    id: string,
-    image: string
-    last_name: string
-    links: Record<string, string>
-    middle_name: string
-    position: {
-        name: string
+export type GetEmployeeResponse = StrapiResponse<{
+    id: number
+    attributes: {
+        first_name: string
+        last_name: string
+        middle_name?: string
+        ranks?: Enumeration
+        position: {
+            data: GetPositionsResponse['data'][number]
+        }
+        image: Image
+        email?: string
+        links?: Record<string, string>
+        career: string
+        study_interests: Enumeration
+        chosen_publications: Enumeration
+        diploma_work_topics?: Enumeration 
     }
-    ranks: Array<string>
-    slug: string
-    study_interests: Array<string>
-    teach_disciplines: Array<{
-        name: string
-        description: string
-    }>
-}
+}>
 
 export const getEmployee = async (slug: string) => {
-    return (await axiosInstance.get(`/employees/${slug}/`)).data as GetEmployeeResponse
+    const emp = (await axiosInstance.get(`/api/employees/${slug}?populate=*`)).data as GetEmployeeResponse
+    emp.data.attributes.image.data.attributes.url = getMediaURL(emp.data.attributes.image.data.attributes.url)
+    return emp
 }
 

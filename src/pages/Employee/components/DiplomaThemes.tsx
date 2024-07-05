@@ -1,6 +1,7 @@
+import { Enumeration } from "@/types/enumeration"
 
 type Props = {
-    diploma_work_topics: Array<string>
+    diploma_work_topics: Enumeration
 }
 
 export const DiplomeThemes = (props: Props) => {
@@ -8,7 +9,7 @@ export const DiplomeThemes = (props: Props) => {
         <h3 className="font-semibold text-3xl mb-4">Теми курсових та дипломних робіт:</h3>
         <ul>
             {
-                props.diploma_work_topics.map(item => <li className="list-decimal list-inside font-light text-2xl mb-2">{item}</li>)
+                props.diploma_work_topics.map(item => <li className="list-decimal list-inside font-light text-2xl mb-2">{item.name}</li>)
             }
         </ul>
     </div>

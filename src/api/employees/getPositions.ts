@@ -1,7 +1,7 @@
 import { axiosInstance } from "../instance"
-import { StrapiManyResponse } from "@/types/strapi-many-response"
+import { StrapiArrayResponse } from "@/types/strapi-response"
 
-export type GetPositionsResponse = StrapiManyResponse<{
+export type GetPositionsResponse = StrapiArrayResponse<{
     id: number
     attributes: {
         name: string

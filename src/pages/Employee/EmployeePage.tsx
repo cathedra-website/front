@@ -11,11 +11,11 @@ export const EmployeePage = () => {
 
     return <>
         <h2 className="font-bold text-[52px]">Співробітники кафедри</h2>
-        <TopInfo links={employee?.links} image={employee?.image ?? ''} name={`${employee?.last_name} ${employee?.first_name} ${employee?.middle_name}`} ranks={employee?.ranks}/>
-        {employee?.degree_history && <Career degree_history={employee.degree_history}/>}
-        {employee?.study_interests && <Science study_interests={employee.study_interests} />}
-        {employee?.chosen_publications && <Publications chosen_publications={employee.chosen_publications} />}
-        {employee?.teach_disciplines && <Disciplines teach_disciplines={employee.teach_disciplines} />}
-        {employee?.diploma_work_topics && <DiplomeThemes diploma_work_topics={employee.diploma_work_topics} />}
+        <TopInfo links={employee.data.attributes.links} image={ employee.data.attributes.image.data.attributes.url ?? ''} name={`${employee.data.attributes.last_name} ${employee.data.attributes.first_name} ${employee.data.attributes.middle_name}`} ranks={employee.data.attributes.ranks}/>
+        {employee.data.attributes.career && <Career degree_history={employee.data.attributes.career}/>}
+        {employee.data.attributes.study_interests && <Science study_interests={employee.data.attributes.study_interests} />}
+        {employee.data.attributes.chosen_publications && <Publications chosen_publications={employee.data.attributes.chosen_publications} />}
+        {/* {employee.data.attributes.teach_disciplines && <Disciplines teach_disciplines={employee.teach_disciplines} />} */}
+        {employee.data.attributes.diploma_work_topics && <DiplomeThemes diploma_work_topics={employee.data.attributes.diploma_work_topics} />}
     </>
 }

@@ -1,6 +1,7 @@
+import { Enumeration } from "@/types/enumeration"
 
 type Props = {
-    study_interests: Array<string>
+    study_interests: Enumeration
 }
 
 export const Science = (props: Props) => {
@@ -8,7 +9,7 @@ export const Science = (props: Props) => {
         <h3 className="font-normal text-3xl mb-4">Сфера наукових інтересів:</h3>
         <ul>
             {
-                props.study_interests.map(item => <li className="list-disc list-inside font-light text-2xl">{item}</li>)
+                props.study_interests.map(item => <li className="list-disc list-inside font-light text-2xl">{item.name}</li>)
             }
         </ul>
     </div>

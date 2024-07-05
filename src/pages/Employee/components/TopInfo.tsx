@@ -1,10 +1,11 @@
 import { Divider } from "@/components/common/divider/Divider"
+import { Enumeration } from "@/types/enumeration"
 
 type Props = {
     name: string
     image: string
     links?: Record<string, string>
-    ranks?: Array<string>
+    ranks?: Enumeration
 }
 
 export const TopInfo = (props: Props) => {
@@ -21,7 +22,7 @@ export const TopInfo = (props: Props) => {
                 <h3 className="font-medium text-5xl mb-3">{props.name}</h3>
                 <Divider />
             </div>
-            {props.ranks && <p className="font-light text-2xl">{props.ranks.join(', ')}</p>}
+            {props.ranks && <p className="font-light text-2xl">{props.ranks.map(item => item.name).join(', ')}</p>}
             {nameToLink && <p className="font-medium text-2xl"><b>Посилання:</b> {nameToLink.map((link, index) => <a href={link[1]}><p className="inline underline underline-offset-8 font-light text-2xl">{link[0]}</p>{index === nameToLink.length-1 ? '.' : ', '}</a>)}</p>}
         </div>
     </div>

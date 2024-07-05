@@ -1,7 +1,8 @@
 import { AdditionalSection } from "@/pages/history/Section/AdditionalSection"
+import { Enumeration } from "@/types/enumeration"
 
 type Props = {
-    chosen_publications: Array<string>
+    chosen_publications: Enumeration
 } 
 
 export const Publications = (props: Props) => { 
@@ -12,11 +13,11 @@ export const Publications = (props: Props) => {
         <h3 className="font-semibold text-3xl mb-4">Вибрані публікації:</h3>
         <ul>
         {
-            visible.map(item => <li className="list-decimal list-inside font-light text-2xl mb-2">{item}</li>)
+            visible.map(item => <li className="list-decimal list-inside font-light text-2xl mb-2">{item.name}</li>)
         }
         <AdditionalSection className="block">
         {
-            hidden.map(item => <li className="list-decimal list-inside font-light text-2xl mb-2">{item}</li>)
+            hidden.map(item => <li className="list-decimal list-inside font-light text-2xl mb-2">{item.name}</li>)
         }
         </AdditionalSection>
         </ul>
