@@ -8,7 +8,8 @@ import { ChangeEvent } from "react"
 
 export const LibraryPage = () => {
     const navigate = useNavigate()
-    const typeFilter = new URL(window.location.href).searchParams.get('type')
+    const getType = new URL(window.location.href).searchParams.get('type')
+    const typeFilter = getType ? Number.parseInt(getType) : null
     const nameFilter = new URL(window.location.href).searchParams.get('name') ?? ''
     const currentPage = Number(new URL(window.location.href).searchParams.get('page')) ?? 1
     const { books, types } = Route.useLoaderData()
