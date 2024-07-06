@@ -1,16 +1,10 @@
 import { Route } from "@/routes/library"
 import { Book } from "./Book"
-import { BookType } from "@/api/library/getBookTypes"
 import { useNavigate } from "@tanstack/react-router"
 import { Input, Pagination } from "@mantine/core"
 import { SearchIcon } from "lucide-react"
 import * as _ from 'lodash'
 import { ChangeEvent } from "react"
-
-const ALL_BOOKS: BookType = {
-    name: 'Усі книги',
-    slug: null
-}
 
 export const LibraryPage = () => {
     const navigate = useNavigate()
@@ -18,7 +12,13 @@ export const LibraryPage = () => {
     const nameFilter = new URL(window.location.href).searchParams.get('name') ?? ''
     const currentPage = Number(new URL(window.location.href).searchParams.get('page')) ?? 1
     const { books, types } = Route.useLoaderData()
-    types.unshift(ALL_BOOKS)
+
+    types.data.unshift({
+        id: null,
+        attributes: {
+            name: 'Усі книги'
+        }
+    })
 
     const filterHandler = _.debounce((event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault()
@@ -38,21 +38,21 @@ export const LibraryPage = () => {
         <div>
             <div className="flex gap-8 mb-8">
                 {
-                    types.map(type => {
-                        const highlighted = type.slug === typeFilter ? 'text-[#12A1DD]' : ''
+                    types.data.map(type => {
+                        const highlighted = type.id == typeFilter ? 'text-[#12A1DD]' : ''
                         return <p 
                             className={`text-2xl font-light cursor-pointer hover:text-[#12A1DD] ${highlighted}`}
                             onClick={() => {
                                 const search: Record<string, unknown> = { page: 1 }
-                                if(type.slug){
-                                    search.type = type.slug
+                                if(type.id){
+                                    search.type = type.id
                                 }
                                 if(nameFilter){
                                     search.name = nameFilter
                                 }
                                 navigate({to: '/library', search })
                             }}
-                        >{type.name}
+                        >{type.attributes.name}
                         </p>
                     })
                 }
@@ -67,10 +67,10 @@ export const LibraryPage = () => {
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-14">
             {
-                books.results.map(book => <Book {...book} />)
+                books.data.map(book => <Book {...book} />)
             }
         </div>
-        <Pagination className="m-auto" radius='xl' size='lg' total={books.total_pages} defaultValue={currentPage}
+        <Pagination className="m-auto" radius='xl' size='lg' total={books.meta.pagination.pageCount} defaultValue={currentPage}
         onNextPage={() => {
             const search: Record<string, unknown> = { page: currentPage + 1 }
             if(typeFilter){

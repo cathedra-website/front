@@ -1,11 +1,14 @@
+import { StrapiArrayResponse } from "@/types/strapi-response"
 import { axiosInstance } from "../instance"
 
-export type BookType = {
-    name: string
-    slug: string | null
-}
+export type BookTypes = StrapiArrayResponse<{
+    id: number | null
+    attributes: {
+        name: string
+    }
+}>
 
 export const getBooksTypes = async () => {
-    return (await axiosInstance.get(`/library/scientificworktypes/`)).data as Array<BookType>
+    return (await axiosInstance.get(`/api/worktypes`)).data as BookTypes
 }
 
