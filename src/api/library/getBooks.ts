@@ -31,9 +31,9 @@ export type BookRequestParams = {
 }
 
 export const getBooks = async (params: BookRequestParams) => {
-    let path = `/api/works?populate=*&pagination[pageSize]=2&pagination[page]=${params.page}`
+    let path = `/api/works?populate=*&pagination[pageSize]=9&pagination[page]=${params.page}`
     if(params.name){
-        path = `${path}&filters[name][$containsi]=${params.name}`
+        path = `${path}&filters[$or][0][name][$containsi]=${params.name}&filters[$or][1][isbn][$eq]=${params.name}`
     }
     if(params.type){
         path = `${path}&filters[worktype][id][$eq]=${params.type}`
