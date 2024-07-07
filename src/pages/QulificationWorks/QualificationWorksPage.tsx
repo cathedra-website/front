@@ -1,10 +1,9 @@
 import { Route } from "@/routes/study/theses.$year"
 import { Table } from "@mantine/core"
-import { Link, useNavigate } from "@tanstack/react-router"
+import { Link } from "@tanstack/react-router"
 
 export const QualificationWorksPage = () => {
     const qualificationWorks = Route.useLoaderData()
-    const navigate = useNavigate({})
     return <>
         <h2 className="font-bold text-5xl">Список випускних робіт на {qualificationWorks.data.attributes.year}н. р.</h2>
         <Table borderColor="dark" verticalSpacing='md'>
