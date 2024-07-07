@@ -1,4 +1,4 @@
-export type Image = {
+export type File = {
     data: {
         id: number
         attributes: {

@@ -1,6 +1,6 @@
 import { StrapiResponse } from "@/types/strapi-response"
 import { axiosInstance } from "../instance"
-import { Image } from "@/types/image"
+import { File } from "@/types/file"
 import { GetPositionsResponse } from "./getPositions"
 import { Enumeration } from "@/types/enumeration"
 import { getMediaURL } from "@/utils/getMediaURL"
@@ -15,7 +15,7 @@ export type GetEmployeeResponse = StrapiResponse<{
         position: {
             data: GetPositionsResponse['data'][number]
         }
-        image: Image
+        image: File
         email?: string
         links?: Record<string, string>
         career: string

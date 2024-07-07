@@ -1,30 +1,23 @@
-import { GetDegreeResponse, getDegreeInfo } from "@/api/degrees/getDegreeInfo"
-import { Route } from "@/routes/study/$slug"
 import { Divider } from "@/components/common/divider/Divider"
-import { useEffect, useState } from "react"
+import { Route } from "@/routes/study/$slug"
 import { useNavigate } from "@tanstack/react-router"
 
 export const DegreePage = () => {
-    const { slug } = Route.useParams()
+    const degreeInfo = Route.useLoaderData()
     const navigate = useNavigate()
-    const [degreeInfo, setDegreeInfo] = useState<GetDegreeResponse>()
-
-    useEffect(() => {
-        getDegreeInfo(slug).then(data => setDegreeInfo(data))
-    }, [])
 
     return <>
-        <h2 className="font-bold text-5xl">{degreeInfo?.name}</h2>
+        <h2 className="font-bold text-5xl">{degreeInfo.attributes.name}</h2>
         <div className="flex flex-col gap-5">
             <h3 className="font-medium text-3xl">Загальна інформація</h3>
-            <p className="font-light text-2xl">{degreeInfo?.description}</p>
+            <p className="font-light text-2xl">{degreeInfo.attributes.description}</p>
         </div>
         <Divider />
         <div className="flex flex-col gap-5">
             <h3 className="font-medium text-3xl">Описи освітньої програми</h3>
             <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
                 {
-                    degreeInfo?.detailed_info.map(descr => <li><a href={descr.file} target="_blank">{descr.name}</a></li>)
+                    degreeInfo.attributes.educational_files.data.filter(file => file.attributes.type === 'detailedInfo').map(file => <li><a href={file.attributes.file.data.attributes.url} target="_blank">{file.attributes.description}</a></li>)
                 }
             </ul>
         </div>
@@ -33,7 +26,7 @@ export const DegreePage = () => {
             <h3 className="font-medium text-3xl">Навчальні плани</h3>
             <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
                 {
-                    degreeInfo?.study_plans.map(plan => <li><a href={plan.file} target="_blank">{plan.name}</a></li>)
+                    degreeInfo.attributes.educational_files.data.filter(file => file.attributes.type === 'studyPlan').map(file => <li><a href={file.attributes.file.data.attributes.url} target="_blank">{file.attributes.description}</a></li>)
                 }
             </ul>
         </div>
@@ -42,7 +35,7 @@ export const DegreePage = () => {
             <h3 className="font-medium text-3xl">Програми навчальних дисциплін</h3>
             <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
                 {
-                    degreeInfo?.disciplines_programs.map(program => <li className="cursor-pointer" onClick={() => navigate({to: '/study/disciplines/$year', params: { year: program.slug }})}>Програми навчальних дисциплін {program.year} років</li>)
+                    degreeInfo.attributes.discipline_infos.data.map(program => <li className="cursor-pointer" onClick={() => navigate({to: '/study/disciplines/$year', params: { year: program.id.toString() }})}>{program.attributes.description}</li>)
                 }
             </ul>
         </div>
@@ -51,9 +44,9 @@ export const DegreePage = () => {
             <h3 className="font-medium text-3xl">Випускні кваліфікаційні роботи студентів</h3>
             <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
                 {
-                    degreeInfo?.qualification_works.map(quals => <li className="cursor-pointer" onClick={() => navigate({to: '/study/theses/$year', params: { year: quals.slug }})}>{quals.year} навчальний рік</li>)
+                    degreeInfo.attributes.qualification_infos.data.map(quals => <li className="cursor-pointer" onClick={() => navigate({to: '/study/theses/$year', params: { year: quals.id.toString() }})}>{quals.attributes.description}</li>)
                 }
             </ul>
         </div>
-    </>
+    </> 
 }

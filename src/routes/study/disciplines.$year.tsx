@@ -1,6 +1,6 @@
 import { getDisciplinePrograms } from '@/api/degrees/getDisciplinePrograms'
-import { getSubjectBlocks } from '@/api/degrees/getSubjectBlocks'
-import { ProgramsPage } from '@/pages/Programs/ProgramsPage'
+import { getDisciplinesTypes } from '@/api/degrees/getDisciplineTypes'
+import { ProgramsPage } from '@/pages/Disciplines/DisciplinesPage'
 import { createFileRoute, notFound } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/study/disciplines/$year')({
@@ -8,10 +8,11 @@ export const Route = createFileRoute('/study/disciplines/$year')({
   loader: async ({params}) => {
     try{
         const disciplines = await getDisciplinePrograms(params.year)
-        const blocks = await getSubjectBlocks(params.year)
+        const typeIds = disciplines.data.attributes.disciplines.data.map(disc => disc.attributes.discipline_type.data.id)
+        const types = await getDisciplinesTypes(typeIds)
         return {
           disciplines,
-          blocks,
+          types
         }
       } catch {
         throw notFound()

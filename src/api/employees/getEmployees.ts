@@ -1,7 +1,7 @@
 import { axiosInstance } from "../instance"
 import { StrapiArrayResponse } from "@/types/strapi-response"
 import { GetPositionsResponse } from "./getPositions"
-import { Image } from "@/types/image"
+import { File } from "@/types/file"
 import { getMediaURL } from "@/utils/getMediaURL"
 
 export type GetEmployeesResponse = StrapiArrayResponse<{
@@ -16,7 +16,7 @@ export type GetEmployeesResponse = StrapiArrayResponse<{
         position: {
             data: GetPositionsResponse['data'][number]
         }
-        image: Image
+        image: File
     }
 }>
 
