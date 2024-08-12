@@ -8,7 +8,7 @@ export const EmploeesPage = () => {
     return <>
         <h1 className="text-[52px] font-bold">Співробітники кафедри</h1>
         {
-            positions.map(item => 
+            positions.  map(item => 
                     <div>
                         <div className="w-fit mb-8">
                             <h2 className="text-5xl mb-3 font-medium">{item.attributes.name}</h2>

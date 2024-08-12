@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const Career = (props: Props) => {
-    const paragrphs = props.degree_history.split('\\r\\n')
+    const paragrphs = props.degree_history.split('\\n')
     const split = Math.floor(paragrphs.length / 4)
     const visible = paragrphs.slice(0, split)
     const hidden = paragrphs.slice(split, paragrphs.length)
