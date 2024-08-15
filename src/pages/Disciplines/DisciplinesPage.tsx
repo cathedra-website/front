@@ -9,7 +9,7 @@ export const ProgramsPage = () => {
     const modified = [...semesters].map(sem => {
         const discs = disciplines.data.attributes.disciplines.data.filter(d => d.attributes.semester === sem)
         return [sem, discs] as const
-    }).filter(i => i)
+    }).filter(i => i).sort()
 
     return <>
         <h2 className="font-bold text-5xl">{disciplines.data.attributes.description}</h2>
