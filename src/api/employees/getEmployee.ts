@@ -22,6 +22,7 @@ export type GetEmployeeResponse = StrapiResponse<{
         study_interests: Enumeration
         chosen_publications: Enumeration
         diploma_work_topics?: Enumeration 
+        active: boolean
     }
 }>
 

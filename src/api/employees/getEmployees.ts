@@ -10,6 +10,7 @@ export type GetEmployeesResponse = StrapiArrayResponse<{
         first_name: string
         last_name: string
         middle_name?: string
+        active: boolean
         ranks?: Array<{
             name: string
         }> 

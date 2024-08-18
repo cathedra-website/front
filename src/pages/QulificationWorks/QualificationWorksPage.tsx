@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router"
 
 export const QualificationWorksPage = () => {
     const qualificationWorks = Route.useLoaderData()
+    qualificationWorks.data.attributes.qualifications.data = qualificationWorks.data.attributes.qualifications.data.sort((a, b) => a.attributes.student.localeCompare(b.attributes.student))
     return <>
         <h2 className="font-bold text-5xl">Список випускних робіт на {qualificationWorks.data.attributes.year}н. р.</h2>
         <Table borderColor="dark" verticalSpacing='md'>

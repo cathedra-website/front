@@ -8,7 +8,7 @@ export const EmploeesPage = () => {
     return <>
         <h1 className="text-[52px] font-bold">Співробітники кафедри</h1>
         {
-            positions.  map(item => 
+            positions.map(item => 
                     <div>
                         <div className="w-fit mb-8">
                             <h2 className="text-5xl mb-3 font-medium">{item.attributes.name}</h2>
@@ -16,7 +16,7 @@ export const EmploeesPage = () => {
                         </div>
                         <div className="grid gap-8 grid-cols-3">
                             {
-                                employees.filter(emp => emp.attributes.position.data.id === item.id).map(employee => <Employee {...employee}/>)
+                                employees.filter(emp => emp.attributes.active && emp.attributes.position.data.id === item.id).map(employee => <Employee {...employee}/>)
                             }
                         </div>
                     </div>)
