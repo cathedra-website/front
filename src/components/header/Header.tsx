@@ -8,11 +8,11 @@ import { useState } from 'react';
 export const Header = () => {
     const [open, setOpen] = useState(false)
     return (
-        <div className='flex gap-16 px-12 h-20 w-screen relative left-0 top-0 justify-between md:justify-center items-center md:px-36' style={{
+        <div className='flex gap-16 px-12 h-20 relative left-0 top-0 justify-between md:justify-start items-center md:px-36' style={{
             boxShadow: "0px 4px 77px -26px rgba(0,0,0,0.25)",
         }}>
             <a href='/'><CathedraLogo height={35} width={105}/></a>
-            <div className='hidden md:flex h-full text-center items-center flex-nowrap'>
+            <div className='hidden md:flex h-full text-center items-center justify-center flex-nowrap grow'>
                 {
                     navbar.map(nav => <Menu loop={false} trigger='hover' withinPortal={false}
                     trapFocus={false}>
