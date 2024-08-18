@@ -8,7 +8,7 @@ import { useState } from 'react';
 export const Header = () => {
     const [open, setOpen] = useState(false)
     return (
-        <div className='flex gap-16 px-12 h-20 relative left-0 top-0 justify-between md:justify-start items-center md:px-36' style={{
+        <div className='flex gap-4 px-8 md:px-24 h-20 relative left-0 top-0 justify-between md:justify-start items-center' style={{
             boxShadow: "0px 4px 77px -26px rgba(0,0,0,0.25)",
         }}>
             <a href='/'><CathedraLogo height={35} width={105}/></a>

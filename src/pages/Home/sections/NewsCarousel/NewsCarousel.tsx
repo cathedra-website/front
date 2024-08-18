@@ -41,7 +41,7 @@ export const NewsCarousel = () => {
                 <Carousel opts={{align: "start",}} className="h-full">
                     <CarouselContent>
                         {
-                            MOCK_NEWS.map(item => <CarouselItem className="basis-1/3"><NewsPreview {...item}/></CarouselItem>)
+                            MOCK_NEWS.map(item => <CarouselItem className="grow"><NewsPreview {...item}/></CarouselItem>)
                         }
                     </CarouselContent>
                     <CarouselPrevious />
