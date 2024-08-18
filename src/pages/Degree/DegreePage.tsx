@@ -44,7 +44,7 @@ export const DegreePage = () => {
             <h3 className="font-medium text-3xl">Випускні кваліфікаційні роботи студентів</h3>
             <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
                 {
-                    degreeInfo.attributes.qualification_infos.data.sort().reverse().map(quals => <li className="cursor-pointer" onClick={() => navigate({to: '/study/theses/$year', params: { year: quals.id.toString() }})}>{quals.attributes.description}</li>)
+                    degreeInfo.attributes.qualification_infos.data.sort().map(quals => <li className="cursor-pointer" onClick={() => navigate({to: '/study/theses/$year', params: { year: quals.id.toString() }})}>{quals.attributes.description}</li>)
                 }
             </ul>
         </div>
