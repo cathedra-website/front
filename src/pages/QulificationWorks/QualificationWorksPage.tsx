@@ -24,13 +24,15 @@ export const QualificationWorksPage = () => {
                                 <Table.Td className="text-2xl">{index + 1}</Table.Td>
                                 <Table.Td className="text-2xl">{work.attributes.student}</Table.Td>
                                 <Table.Td className="text-2xl ">{work.attributes.work_name}</Table.Td>
-                                <Table.Td className="text-2xl">{work.attributes.employee.data ? <Link
+                                <Table.Td className="text-2xl">{work.attributes.employee.data ? work.attributes.employee.data.attributes.active ? <Link
                                     to="/cathedra/employees/$slug"
                                     params={{ slug: work.attributes.employee.data.id.toString() }}
                                     className='cursor-pointer text-[#12A1DD]'
                                  >
                                     {`${work.attributes.employee.data.attributes.last_name} ${work.attributes.employee.data.attributes.first_name.charAt(0)}. ${work.attributes.employee.data.attributes.middle_name?.charAt(0)}.`}
-                                 </Link> : work.attributes.non_employee}</Table.Td>
+                                 </Link> 
+                                 : `${work.attributes.employee.data.attributes.last_name} ${work.attributes.employee.data.attributes.first_name.charAt(0)}. ${work.attributes.employee.data.attributes.middle_name?.charAt(0)}.`
+                                 : '' }</Table.Td>
                             </Table.Tr>
                         </>
                         })
