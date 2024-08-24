@@ -35,7 +35,7 @@ export const DegreePage = () => {
             <h3 className="font-medium text-3xl">Програми навчальних дисциплін</h3>
             <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
                 {
-                    degreeInfo.attributes.discipline_infos.data.sort().reverse().map(program => <li className="cursor-pointer" onClick={() => navigate({to: '/study/disciplines/$year', params: { year: program.id.toString() }})}>{program.attributes.description}</li>)
+                    degreeInfo.attributes.discipline_infos.data.sort().map(program => <li className="cursor-pointer" onClick={() => navigate({to: '/study/disciplines/$year', params: { year: program.id.toString() }})}>{program.attributes.description}</li>)
                 }
             </ul>
         </div>
