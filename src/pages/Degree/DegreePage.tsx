@@ -17,7 +17,7 @@ export const DegreePage = () => {
             <h3 className="font-medium text-3xl">Описи освітньої програми</h3>
             <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
                 {
-                    degreeInfo.attributes.educational_files.data.sort().reverse().filter(file => file.attributes.type === 'detailedInfo').map(file => <li><a href={file.attributes.file.data.attributes.url} target="_blank">{file.attributes.description}</a></li>)
+                    degreeInfo.attributes.educational_files.data.sort().filter(file => file.attributes.type === 'detailedInfo').map(file => <li><a href={file.attributes.file.data.attributes.url} target="_blank">{file.attributes.description}</a></li>)
                 }
             </ul>
         </div>
@@ -26,7 +26,7 @@ export const DegreePage = () => {
             <h3 className="font-medium text-3xl">Навчальні плани</h3>
             <ul className="font-light text-2xl underline underline-offset-8 list-disc list-inside">
                 {
-                    degreeInfo.attributes.educational_files.data.sort().reverse().filter(file => file.attributes.type === 'studyPlan').map(file => <li><a href={file.attributes.file.data.attributes.url} target="_blank">{file.attributes.description}</a></li>)
+                    degreeInfo.attributes.educational_files.data.sort().filter(file => file.attributes.type === 'studyPlan').map(file => <li><a href={file.attributes.file.data.attributes.url} target="_blank">{file.attributes.description}</a></li>)
                 }
             </ul>
         </div>
